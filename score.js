@@ -1,18 +1,18 @@
-function plussa(newPlayerNr){
-  countedScore  = parseInt(document.getElementById(newPlayerNr).value) ;
+function plussa(localScoreField){
+  countedScore  = parseInt(document.getElementById(localScoreField).value) ;
 
    newScore = countedScore + 1;
 
-  document.getElementById(newPlayerNr).value = newScore;
+  document.getElementById(localScoreField).value = newScore;
 
 
 
 }
-function minus(){
-  countedScore  = parseInt(document.getElementById(newPlayerNr).value) ;
+function minus(localScoreField){
+  countedScore  = parseInt(document.getElementById(localScoreField).value) ;
 
    newScore = countedScore - 1;
 
-  document.getElementById(newPlayerNr).value = newScore;
+  document.getElementById(localScoreField).value = newScore;
 
 }
