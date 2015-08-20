@@ -1,8 +1,15 @@
+/*.enRad {display:block; margin:10px auto;}*/
+
+body {background-color:lightblue  ;
+      width: 100%;}
 
 
-body {background-color:lightgray}
-h1   {color:blue}
-p    {color:green}
 
-input { text-align: center;
-}
+
+
+.button{margin-left: 1em;}
+
+.scoreField{margin-left: 1em;}
+
+.nameField{ margin-left: 41%;
+            text-align: center;}
