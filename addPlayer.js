@@ -9,12 +9,12 @@ function addPlayer() {
 
 //Add field where player may enter name.
    var playerName = document.createElement("INPUT");
-   playerName.setAttribute("id", "field" + newPlayerNr);
-   playerName.setAttribute("size", "20px");
-   playerName.setAttribute("type", "text");
-   playerName.setAttribute("value", "Player "+ newPlayerNr);
-   playerName.setAttribute("onclick","this.select()");
-   playerName.setAttribute("class", "nameField");
+   playerName.id= "field" + newPlayerNr;
+   playerName.size = 20;
+   playerName.type = "text";
+   playerName.value = "Player "+ newPlayerNr;
+   playerName.onclick = function(){this.select();}
+   playerName.className = "nameField";
    document.body.appendChild(playerName);
 
 //id_score is used to be able to point the functions plussa() and minus() to the scorefield of the right player
@@ -24,29 +24,29 @@ function addPlayer() {
     var plusset = document.createElement("BUTTON");
     var plussetText = document.createTextNode("+1");
     plusset.id = "plusset" + newPlayerNr;
-    plusset.setAttribute("tabindex", "-1");
+    plusset.tabIndex =-1;
     plusset.onclick = function() {plussa(id_score);};
-    plusset.setAttribute("class", "button");
+    plusset.className = "button";
     plusset.appendChild(plussetText);
     document.body.appendChild(plusset);
 // Add the -button
     var minuset = document.createElement("BUTTON");
     var minusetText = document.createTextNode("-1");
     minuset.id = "minus" + newPlayerNr;
-    minuset.setAttribute("tabindex", "-1");
+    minuset.tabIndex = -1;
     minuset.onclick = function() {minus(id_score);}
-    minuset.setAttribute("class", "button");
+    minuset.className = "button";
     minuset.appendChild(minusetText);
     document.body.appendChild(minuset);
 // Add scorefield and make it readonly
     var scoreField = document.createElement("INPUT");
-    scoreField.setAttribute("id", id_score);
-    scoreField.setAttribute("tabindex", "-1");
-    scoreField.setAttribute("readonly", "readonly");
-    scoreField.setAttribute("size", "4");
-    scoreField.setAttribute("type", "text");
-    scoreField.setAttribute("value", 0);
-    scoreField.setAttribute("class", "scoreField");
+    scoreField.id = id_score;
+    scoreField.tabIndex = -1;
+    scoreField.readOnly = "readonly";
+    scoreField.size = 4;
+    scoreField.type = "text";
+    scoreField.value = 0;
+    scoreField.className = "scoreField";
     document.body.appendChild(scoreField);
 
 
