@@ -1,5 +1,7 @@
-
+//-------------------
 // Add a player with name Player1, Player2 etc
+//-------------------
+
 //playerNr is used to start of newPlayerNr
 var playerNr = 1;
 
@@ -17,9 +19,10 @@ function addPlayer() {
    playerName.className = "nameField";
    document.body.appendChild(playerName);
 
-//id_score is used to be able to point the functions plussa() and minus() to the scorefield of the right player
+// These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
    var id_score = "score" + newPlayerNr;
-
+   var manualScoreId = "manual" + id_score;
+   console.log(manualScoreId);
 // Add the +button
     var plusset = document.createElement("BUTTON");
     var plussetText = document.createTextNode("+1");
@@ -29,6 +32,7 @@ function addPlayer() {
     plusset.className = "button";
     plusset.appendChild(plussetText);
     document.body.appendChild(plusset);
+
 // Add the -button
     var minuset = document.createElement("BUTTON");
     var minusetText = document.createTextNode("-1");
@@ -38,6 +42,18 @@ function addPlayer() {
     minuset.className = "button";
     minuset.appendChild(minusetText);
     document.body.appendChild(minuset);
+
+// Add manual scorefield
+    var manualScore = document.createElement("INPUT");
+    manualScore.id = manualScoreId;
+    manualScore.value = 0;
+    manualScore.className = "manualScoreField";
+    manualScore.onclick = function(){this.select();}
+    manualScore.onkeydown = function(e){if(e.keyCode==13){manualScoreCalc(manualScoreId, id_score)}};
+    manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
+    document.body.appendChild(manualScore);
+
+
 // Add scorefield and make it readonly
     var scoreField = document.createElement("INPUT");
     scoreField.id = id_score;
