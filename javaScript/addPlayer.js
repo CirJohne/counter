@@ -20,10 +20,14 @@ function addPlayer() {
    playerName.className = "nameField";
    document.body.appendChild(playerName);
 
-// These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
-   var id_score = "score" + newPlayerNr;
-   var manualScoreId = "manual" + id_score;
 
+// These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
+     var playerNameId = "field" + newPlayerNr;
+     var id_score = "score" + newPlayerNr;
+     var manualScoreId = "manual" + id_score;
+     var plussetId =  "plusset" + newPlayerNr;
+     var minusetId = "minus" + newPlayerNr;
+     var removeButtonId = "removeButton" + newPlayerNr;
 // Add the +button
     var plusset = document.createElement("BUTTON");
     var plussetText = document.createTextNode("+1");
@@ -71,6 +75,14 @@ function addPlayer() {
     scoreField.className = "scoreField";
     document.body.appendChild(scoreField);
 
+// Add removeButton which will delete entire row by calling removePlayer()
+      var removeButton = document.createElement("BUTTON");
+      var removeButtonText = document.createTextNode("Remove player");
+      removeButton.id = removeButtonId;
+      removeButton.onclick = function(){removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetId, removeButtonId)};
+      removeButton.className = "button";
+      removeButton.appendChild(removeButtonText);
+      document.body.appendChild(removeButton);
 
 //Add a paragraph to make sure next player is on new line
     var p = document.createElement('p');
