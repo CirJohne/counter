@@ -50,6 +50,7 @@ function addPlayer() {
     var manualScore = document.createElement("INPUT");
     manualScore.id = manualScoreId;
     manualScore.value = 0;
+    manualScore.size = 4;
     manualScore.className = "manualScoreField";
     manualScore.title = "In this field you may add score manually. Ex '40' or '-20'.";
     manualScore.onclick = function(){this.select();}

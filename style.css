@@ -3,10 +3,12 @@
 body {background-color:lightblue  ;
       width: 100%;}
 
+#pDate{margin-left: 39%;}
 #addPlayerButton{ width: 20em;
                   height: 5em;
-                  margin-left: 4em;}
-
+                  ;}
+#nameOfGame{      font-size: 2em;
+                  text-align: center;}
 
 
 .button{margin-left: 1em;}
@@ -14,5 +16,5 @@ body {background-color:lightblue  ;
 .scoreField{margin-left: 1em;}
 .manualScoreField{margin-left: 1em;}
 
-.nameField{ margin-left: 41%;
+.nameField{ margin-left: 39%;
             text-align: center;}

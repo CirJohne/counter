@@ -4,14 +4,19 @@
 <link rel="stylesheet" type ="text/css" href="style.css">
 </head>
 <body>
-<center><h1>Keep count.</h1></center>
-<p>A simple tool for declaring a winner!</p><br><br>
-Name of the game:
-<input type="text" name="nameOfGame" size="25" id="nameOfGame"><br>
+<center><h1>Keep count.</h1>
+<p>A simple tool for declaring a winner!</p>
+<br>
+<br>
 <script src = "javaScript/date.js"></script>
-<button id="addPlayerButton" type=submit onClick="addPlayer()">Add player</button><br><br>
+<input type="text" value="The name of the game?" size="25" id="nameOfGame" autofocus onfocus="this.select()"><p><br>
+<button id="addPlayerButton" type=submit onClick="addPlayer()">Add player</button>
+
+<br>
+<br>
 <script src="javaScript/addPlayer.js"></script>
 <script src="javaScript/scoreButton.js"></script>
 <script src="javaScript/scoreManual.js"></script>
+</center>
 </body>
 </html>
