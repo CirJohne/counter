@@ -3,7 +3,7 @@
 body {background-color:lightblue  ;
       width: 100%;}
 
-#pDate{margin-left: 39%;}
+#pDate{}
 #addPlayerButton{ width: 20em;
                   height: 5em;
                   ;}
@@ -16,5 +16,4 @@ body {background-color:lightblue  ;
 .scoreField{margin-left: 1em;}
 .manualScoreField{margin-left: 1em;}
 
-.nameField{ margin-left: 36%;
-            text-align: center;}
+.nameField{text-align: center;}

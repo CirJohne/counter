@@ -18,7 +18,7 @@ function addPlayer() {
    playerName.value = "Player "+ newPlayerNr;
    playerName.onclick = function(){this.select();}
    playerName.className = "nameField";
-   document.body.appendChild(playerName);
+   document.getElementById('playerDiv').appendChild(playerName);
 
 
 // These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
@@ -37,7 +37,7 @@ function addPlayer() {
     plusset.onclick = function() {plussa(id_score);};
     plusset.className = "button";
     plusset.appendChild(plussetText);
-    document.body.appendChild(plusset);
+    document.getElementById('playerDiv').appendChild(plusset);
 
 // Add the -button
     var minuset = document.createElement("BUTTON");
@@ -48,7 +48,7 @@ function addPlayer() {
     minuset.onclick = function() {minus(id_score);}
     minuset.className = "button";
     minuset.appendChild(minusetText);
-    document.body.appendChild(minuset);
+    document.getElementById('playerDiv').appendChild(minuset);
 
 // Add manual scorefield
     var manualScore = document.createElement("INPUT");
@@ -60,7 +60,7 @@ function addPlayer() {
     manualScore.onclick = function(){this.select();}
     manualScore.onkeydown = function(e){if(e.keyCode==13){manualScoreCalc(manualScoreId, id_score)}};
     manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
-    document.body.appendChild(manualScore);
+    document.getElementById('playerDiv').appendChild(manualScore);
 
 
 // Add scorefield and make it readonly
@@ -73,7 +73,7 @@ function addPlayer() {
     scoreField.type = "text";
     scoreField.value = 0;
     scoreField.className = "scoreField";
-    document.body.appendChild(scoreField);
+    document.getElementById('playerDiv').appendChild(scoreField);
 
 // Add removeButton which will delete entire row by calling removePlayer()
       var removeButton = document.createElement("BUTTON");
@@ -83,10 +83,10 @@ function addPlayer() {
       removeButton.tabIndex = -1;
       removeButton.className = "button";
       removeButton.appendChild(removeButtonText);
-      document.body.appendChild(removeButton);
+      document.getElementById('playerDiv').appendChild(removeButton);
 
 //Add a paragraph to make sure next player is on new line
     var p = document.createElement('p');
-    document.body.appendChild(p);
+    document.getElementById('playerDiv').appendChild(p);
 
 }
