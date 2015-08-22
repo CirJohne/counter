@@ -80,6 +80,7 @@ function addPlayer() {
       var removeButtonText = document.createTextNode("Remove player");
       removeButton.id = removeButtonId;
       removeButton.onclick = function(){removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetId, removeButtonId)};
+      removeButton.tabIndex = -1;
       removeButton.className = "button";
       removeButton.appendChild(removeButtonText);
       document.body.appendChild(removeButton);
@@ -87,10 +88,5 @@ function addPlayer() {
 //Add a paragraph to make sure next player is on new line
     var p = document.createElement('p');
     document.body.appendChild(p);
-
-
-
-
-
 
 }
