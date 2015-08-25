@@ -89,4 +89,6 @@ function addPlayer() {
     var p = document.createElement('p');
     document.getElementById('playerDiv').appendChild(p);
 
+//Add id to currentPlayers[]
+currentPlayers.push(playerNameId);
 }

@@ -1,8 +1,40 @@
+//The array currentPlayers contains all the id's of current players.
+var currentPlayers = [];
+
+// playersAndScores will be used for sorting scores to be able to present winner
+var playersAndScores =[];
+
+//Create a hash with playername as keys and scores as values.
+function createHash(){
+  for (var i = 0; i < currentPlayers.length; i++){
+    var a = currentPlayers[i];
+    scoreField = a.slice(5,7);
+    currentScoreField = "score" + scoreField;
+    console.log(currentScoreField);
+    var b = parseInt(document.getElementById(currentScoreField).value);
+    playersAndScores[a] = b;
+    console.log(playersAndScores);
+  }
+}
+
+
+
+// function createHash(){
+//       var a = document.getElementById("field1").value;
+//       var b = parseInt(document.getElementById("score1").value);
+//       var hash= [];
+//       hash[a] = b ;
+// console.log(currentPlayers);
+// console.log(hash);
+//                       }
+
+
+
 //Add a button called "End Game" which takes the player to another page (endGame.html)
 
 var endGameButton = document.createElement("BUTTON");
 var endGameText = document.createTextNode("End game");
 endGameButton.id = endGameButton;
-endGameButton.onclick = function(){location.href='endGame.html';};
+endGameButton.onclick = function(){createHash();};
 endGameButton.appendChild(endGameText);
 document.getElementById('endDiv').appendChild(endGameButton);

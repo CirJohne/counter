@@ -1,3 +1,5 @@
+// removePlayer removs the player from the table and also initiats removeCurrentPlayer()
+
 function removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetId, removeButtonId){
 
           var playerName = document.getElementById(playerNameId);
@@ -18,4 +20,14 @@ function removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetI
           var removeButton = document.getElementById(removeButtonId);
           removeButton.parentNode.removeChild(removeButton);
 
+          removeCurrentPlayer(playerNameId);
+
+
+}
+
+// removeCurrentPlayer removes the player id from currentPlayers[]
+
+function removeCurrentPlayer(playerNameId){
+  var index = currentPlayers.indexOf(playerNameId);
+  currentPlayers.splice(index, 1);
 }
