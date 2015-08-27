@@ -60,12 +60,8 @@ function endGameWrapper(){
   createObject();
   sortPlayersAndScores(playersAndScores);
   fillWinnerArray(playersAndScores);
-
-
-
+  declareWinner();
   console.log(key);
   console.log(value);
   console.log(winnerArray);
-
-
-}
+                          }
