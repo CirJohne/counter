@@ -3,7 +3,7 @@
 var endGameButton = document.createElement("BUTTON");
 var endGameText = document.createTextNode("End game");
 endGameButton.id = endGameButton;
-endGameButton.onclick = function(){createObject();};
+endGameButton.onclick = function(){endGameWrapper();};
 endGameButton.appendChild(endGameText);
 document.getElementById('endDiv').appendChild(endGameButton);
 
@@ -19,9 +19,30 @@ function createObject(){
     var a = currentPlayers[i];
     scoreField = a.slice(5,7);
     currentScoreField = "score" + scoreField;
-    console.log(currentScoreField);
-    var b = parseInt(document.getElementById(currentScoreField).value);
+    // console.log(currentScoreField);
+    var b = document.getElementById(currentScoreField).value;
     playersAndScores.push({key:a, value: b});
     console.log(playersAndScores);
   }
+}
+
+// Figure out how to sort playersAndScores FUNKAR INTE
+var winner = [];
+
+function findWinner(playersAndScores){
+
+playersAndScores.sort(function(a, b){
+  return parseInt(b.value)-parseInt(a.value);
+  console.log(playersAndScores);
+
+});
+                                      }
+
+// wrapper to fire off all functions needed to declare winner
+function endGameWrapper(){
+  createObject();
+  findWinner(playersAndScores);
+  winner.push(playersAndScores);
+  console.log(winner);
+  alert(winner);
 }
