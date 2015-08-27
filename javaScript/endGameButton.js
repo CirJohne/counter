@@ -26,23 +26,46 @@ function createObject(){
   }
 }
 
-// Figure out how to sort playersAndScores FUNKAR INTE
-var winner = [];
-
-function findWinner(playersAndScores){
+// Sort playersAndScores
+function sortPlayersAndScores(playersAndScores){
 
 playersAndScores.sort(function(a, b){
   return parseInt(b.value)-parseInt(a.value);
-  console.log(playersAndScores);
+
 
 });
+
                                       }
+// Variables needed for fillWinnerArray
+var key=[];
+var value=[];
+var winnerArray=[];
+// Create array with only keys and values
+function fillWinnerArray(playersAndScores)              {
+  key = playersAndScores.map(function(playersAndScores) {
+  return playersAndScores['key'];
+});
+value = playersAndScores.map(function(playersAndScores) {
+return playersAndScores['value'];
+});
+for (i=0; i < key.length; i++){
+  winnerArray.push(key[i]);
+  winnerArray.push(value[i]);
+                              }
+                                                        }
+
 
 // wrapper to fire off all functions needed to declare winner
 function endGameWrapper(){
   createObject();
-  findWinner(playersAndScores);
-  winner.push(playersAndScores);
-  console.log(winner);
-  alert(winner);
+  sortPlayersAndScores(playersAndScores);
+  fillWinnerArray(playersAndScores);
+
+
+
+  console.log(key);
+  console.log(value);
+  console.log(winnerArray);
+
+
 }
