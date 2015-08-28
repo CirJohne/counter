@@ -1,7 +1,7 @@
 var j = -1;
 function declareWinner(){
 
-  for(i = 0; i <= winnerArray.length; i+=2){
+  for(i = 0; i < winnerArray.length; i+=2){
     j = j+2;
     console.log(winnerArray);
     console.log(j);
