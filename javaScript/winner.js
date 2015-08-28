@@ -6,7 +6,11 @@ function declareWinner(){
     console.log(winnerArray);
     console.log(j);
 var p = document.createElement('p');
-var pText = document.createTextNode((document.getElementById(winnerArray[i]).value)+ " with "+ winnerArray[j]+ " points!" );
+var player = document.getElementById(winnerArray[i]).value;
+if (i===0){
+            var pText = document.createTextNode("And the winner is " + player + " with "+ winnerArray[j] + " points!!!!" );}
+else {
+      var pText = document.createTextNode(player + " with "+ winnerArray[j] + " points!" );}
 p.appendChild(pText);
 document.getElementById('winnerDiv').appendChild(p);
 
