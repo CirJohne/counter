@@ -9,8 +9,12 @@ var p = document.createElement('p');
 var player = document.getElementById(winnerArray[i]).value;
 if (i===0){
             var pText = document.createTextNode("And the winner is " + player + " with "+ winnerArray[j] + " points!!!!" );}
+else if (i===2){
+            var pText = document.createTextNode("In second place we find " + player + " with "+ winnerArray[j] + " points!!!" );}
+else if (i===4){
+            var pText = document.createTextNode("Third and final player on the podium is " + player + " with "+ winnerArray[j] + " points!" );}
 else {
-      var pText = document.createTextNode(player + " with "+ winnerArray[j] + " points!" );}
+      var pText = document.createTextNode("Not in the top3, but "+ player + " got "+ winnerArray[j] + " points!" );}
 p.appendChild(pText);
 document.getElementById('winnerDiv').appendChild(p);
 
