@@ -9,6 +9,14 @@ function addPlayer() {
 // newPlayerNr is used to iterate added player and add 1 on every turn
     newPlayerNr = playerNr++;
 
+// These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
+     var playerNameId = "field" + newPlayerNr;
+     var id_score = "score" + newPlayerNr;
+     var manualScoreId = "manual" + id_score;
+     var plussetId =  "plusset" + newPlayerNr;
+     var minusetId = "minus" + newPlayerNr;
+     var removeButtonId = "removeButton" + newPlayerNr;
+
 //Add field where player may enter name.
    var playerName = document.createElement("INPUT");
    playerName.id= "field" + newPlayerNr;
@@ -21,13 +29,7 @@ function addPlayer() {
    document.getElementById('playerDiv').appendChild(playerName);
 
 
-// These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
-     var playerNameId = "field" + newPlayerNr;
-     var id_score = "score" + newPlayerNr;
-     var manualScoreId = "manual" + id_score;
-     var plussetId =  "plusset" + newPlayerNr;
-     var minusetId = "minus" + newPlayerNr;
-     var removeButtonId = "removeButton" + newPlayerNr;
+
 // Add the +button
     var plusset = document.createElement("BUTTON");
     var plussetText = document.createTextNode("+1");

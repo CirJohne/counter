@@ -1,3 +1,5 @@
+// This isn't correct. Now the function uses the positions in winnerArray. It should compare values and also figure out if there is a tie.
+
 var j = -1;
 function declareWinner(){
 

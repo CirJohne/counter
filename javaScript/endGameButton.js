@@ -53,7 +53,13 @@ for (i=0; i < key.length; i++){
   winnerArray.push(value[i]);
                               }
                                                         }
-
+// Set border for winnerDiv
+ function winnerDivCss(){
+   var css = document.createElement("style");
+   css.type = "text/css";
+   css.innerHTML = "#winnerDiv { border-style: groove; width: 50% }";
+   document.body.appendChild(css);
+ }
 
 // wrapper to fire off all functions needed to declare winner
 function endGameWrapper(){
@@ -61,6 +67,7 @@ function endGameWrapper(){
   sortPlayersAndScores(playersAndScores);
   fillWinnerArray(playersAndScores);
   declareWinner();
+  winnerDivCss();
   console.log(key);
   console.log(value);
   console.log(winnerArray);
