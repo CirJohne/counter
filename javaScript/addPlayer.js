@@ -5,7 +5,11 @@
 //playerNr is used to start of newPlayerNr
 var playerNr = 1;
 
-function addPlayer() {
+function addPlayer(){
+  addPlayerWithArgs(document.getElementById("playerDiv"));
+}
+
+function addPlayerWithArgs(playerDiv) {
 // newPlayerNr is used to iterate added player and add 1 on every turn
     newPlayerNr = playerNr++;
 
@@ -26,7 +30,7 @@ function addPlayer() {
    playerName.value = "Player "+ newPlayerNr;
    playerName.onclick = function(){this.select();}
    playerName.className = "nameField";
-   document.getElementById('playerDiv').appendChild(playerName);
+   playerDiv.appendChild(playerName);
 
 
 
@@ -39,7 +43,7 @@ function addPlayer() {
     plusset.onclick = function() {plussa(id_score);};
     plusset.className = "button";
     plusset.appendChild(plussetText);
-    document.getElementById('playerDiv').appendChild(plusset);
+    playerDiv.appendChild(plusset);
 
 // Add the -button
     var minuset = document.createElement("BUTTON");
@@ -50,7 +54,7 @@ function addPlayer() {
     minuset.onclick = function() {minus(id_score);}
     minuset.className = "button";
     minuset.appendChild(minusetText);
-    document.getElementById('playerDiv').appendChild(minuset);
+    playerDiv.appendChild(minuset);
 
 // Add manual scorefield
     var manualScore = document.createElement("INPUT");
@@ -62,7 +66,7 @@ function addPlayer() {
     manualScore.onclick = function(){this.select();}
     manualScore.onkeydown = function(e){if(e.keyCode==13){manualScoreCalc(manualScoreId, id_score)}};
     manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
-    document.getElementById('playerDiv').appendChild(manualScore);
+    playerDiv.appendChild(manualScore);
 
 
 // Add scorefield and make it readonly
@@ -75,7 +79,7 @@ function addPlayer() {
     scoreField.type = "text";
     scoreField.value = 0;
     scoreField.className = "scoreField";
-    document.getElementById('playerDiv').appendChild(scoreField);
+    playerDiv.appendChild(scoreField);
 
 // Add removeButton which will delete entire row by calling removePlayer()
       var removeButton = document.createElement("BUTTON");
@@ -85,12 +89,12 @@ function addPlayer() {
       removeButton.tabIndex = -1;
       removeButton.className = "button";
       removeButton.appendChild(removeButtonText);
-      document.getElementById('playerDiv').appendChild(removeButton);
+      playerDiv.appendChild(removeButton);
 
 //Add a paragraph to make sure next player is on new line
     var p = document.createElement('p');
-    document.getElementById('playerDiv').appendChild(p);
+    playerDiv.appendChild(p);
 
-//Add id to currentPlayers[]
-currentPlayers.push(playerNameId);
+    //Add id to currentPlayers[]
+    currentPlayers.push(playerNameId);
 }

@@ -1,20 +1,10 @@
-function getNumberOfElementsOn(element){
-  return element.childElementCount;
-}
 
-describe("addPlayer", function(){
+describe("addPlayerWithArgs", function(){
   it ("should add 7 elements to playerDiv", function(){
-      var playerDiv = document.createElement("div");
-      playerDiv.id = "playerDiv";
-      document.body.appendChild(playerDiv);
-      playerDiv = document.getElementById("playerDiv");
-      expect(playerDiv).not.toBe(null);
+      var playerDiv = jasmine.createSpyObj('playerDiv', ['appendChild'])
 
-      expect(getNumberOfElementsOn(playerDiv)).toEqual(0);
+      addPlayerWithArgs(playerDiv);
 
-      addPlayer();
-
-      playerDiv = document.getElementById("playerDiv");
-      expect(getNumberOfElementsOn(playerDiv)).toEqual(7);
+      expect(playerDiv.appendChild.calls.count()).toEqual(7);
   });
 });
