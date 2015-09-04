@@ -16,8 +16,8 @@ describe("addPlayerWithArgs", function(){
   });
 });
 
-describe("createTextField", function(){
-  it ("should create a textfield", function(){
+describe("createNewElement", function(){
+  it ("should create a new element", function(){
     var fakeElement = {};
     var fakeDocument = {
       createElement: function(type){
@@ -25,7 +25,7 @@ describe("createTextField", function(){
       }
     };
 
-    var textField = createTextField(fakeDocument, "input","field1",10,"title",0,"className");
+    var textField = createNewElement(fakeDocument, "input","field1",10,"title",0,"className",0);
     expect(textField.id).toEqual("field1");
     expect(textField.size).toEqual(10);
   });
