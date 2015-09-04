@@ -18,7 +18,14 @@ describe("addPlayerWithArgs", function(){
 
 describe("createTextField", function(){
   it ("should create a textfield", function(){
-    var textField = createTextField("field1",10,"title",0,"className");
+    var fakeElement = {};
+    var fakeDocument = {
+      createElement: function(type){
+        return fakeElement;
+      }
+    };
+
+    var textField = createTextField(fakeDocument,"field1",10,"title",0,"className");
     expect(textField.id).toEqual("field1");
     expect(textField.size).toEqual(10);
   });

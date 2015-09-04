@@ -5,8 +5,6 @@ function declareWinner(){
 
   for(i = 0; i < winnerArray.length; i+=2){
     j = j+2;
-    console.log(winnerArray);
-    console.log(j);
 var p = document.createElement('p');
 var player = document.getElementById(winnerArray[i]).value;
 if (i===0){
