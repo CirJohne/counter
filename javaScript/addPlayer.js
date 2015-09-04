@@ -7,29 +7,37 @@ var playerNr = 1;
 
 function addPlayer(){
   addPlayerWithArgs(document.getElementById("playerDiv"),document);
-}
+};
+
+
 
 function addPlayerWithArgs(playerDiv, create) {
 // newPlayerNr is used to iterate added player and add 1 on every turn
     newPlayerNr = playerNr++;
 
+    function createTextField(id, size, title, value,className){
+      var temp = create.createElement("input");
+      temp.type = "text";
+      temp.id = id;
+      temp.size = size;
+      temp.title = title;
+      temp.value = value;
+      temp.className = className;
+      return temp;
+    };
 // These are used to be able to point the functions plussa(),minus() and manualScore() to the scorefield of the right player
      var playerNameId = "field" + newPlayerNr;
      var id_score = "score" + newPlayerNr;
-     var manualScoreId = "manual" + id_score;
+     var manualScoreId = "manualscore" + newPlayerNr;
      var plussetId =  "plusset" + newPlayerNr;
      var minusetId = "minus" + newPlayerNr;
      var removeButtonId = "removeButton" + newPlayerNr;
 
 //Add field where player may enter name.
-   var playerName = create.createElement("INPUT");
-   playerName.id= "field" + newPlayerNr;
-   playerName.size = 20;
-   playerName.title = "You may change name.";
-   playerName.type = "text";
-   playerName.value = "Player "+ newPlayerNr;
+
+   var playerName = createTextField("field" + newPlayerNr, 20,
+   "You may change name.", "Player" + newPlayerNr, "nameField");
    playerName.onclick = function(){this.select();}
-   playerName.className = "nameField";
    playerDiv.appendChild(playerName);
 
 
@@ -57,12 +65,9 @@ function addPlayerWithArgs(playerDiv, create) {
     playerDiv.appendChild(minuset);
 
 // Add manual scorefield
-    var manualScore = create.createElement("INPUT");
-    manualScore.id = manualScoreId;
-    manualScore.value = 0;
-    manualScore.size = 4;
-    manualScore.className = "manualScoreField";
-    manualScore.title = "In this field you may add score manually. Ex '40' or '-20'.";
+    var manualScore = createTextField("manualscore" + newPlayerNr,
+    4, "In this field you may add score manually. Ex '40' or '-20'.", 0, "manualScoreField" )
+    create.createElement("INPUT");
     manualScore.onclick = function(){this.select();}
     manualScore.onkeydown = function(e){if(e.keyCode==13){manualScoreCalc(manualScoreId, id_score)}};
     manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
@@ -70,15 +75,10 @@ function addPlayerWithArgs(playerDiv, create) {
 
 
 // Add scorefield and make it readonly
-    var scoreField = create.createElement("INPUT");
-    scoreField.id = id_score;
+    var scoreField = createTextField("score" + newPlayerNr, 4,
+    "Total score", 0, "scoreField")
     scoreField.tabIndex = -1;
-    scoreField.title = "Total score";
     scoreField.readOnly = "readonly";
-    scoreField.size = 4;
-    scoreField.type = "text";
-    scoreField.value = 0;
-    scoreField.className = "scoreField";
     playerDiv.appendChild(scoreField);
 
 // Add removeButton which will delete entire row by calling removePlayer()
