@@ -6,10 +6,10 @@
 var playerNr = 1;
 
 function addPlayer(){
-  addPlayerWithArgs(document.getElementById("playerDiv"));
+  addPlayerWithArgs(document.getElementById("playerDiv"),document);
 }
 
-function addPlayerWithArgs(playerDiv) {
+function addPlayerWithArgs(playerDiv, create) {
 // newPlayerNr is used to iterate added player and add 1 on every turn
     newPlayerNr = playerNr++;
 
@@ -22,7 +22,7 @@ function addPlayerWithArgs(playerDiv) {
      var removeButtonId = "removeButton" + newPlayerNr;
 
 //Add field where player may enter name.
-   var playerName = document.createElement("INPUT");
+   var playerName = create.createElement("INPUT");
    playerName.id= "field" + newPlayerNr;
    playerName.size = 20;
    playerName.title = "You may change name.";
@@ -35,8 +35,8 @@ function addPlayerWithArgs(playerDiv) {
 
 
 // Add the +button
-    var plusset = document.createElement("BUTTON");
-    var plussetText = document.createTextNode("+1");
+    var plusset = create.createElement("BUTTON");
+    var plussetText = create.createTextNode("+1");
     plusset.id = "plusset" + newPlayerNr;
     plusset.tabIndex =-1;
     plusset.title = "Click to add 1 point";
@@ -46,8 +46,8 @@ function addPlayerWithArgs(playerDiv) {
     playerDiv.appendChild(plusset);
 
 // Add the -button
-    var minuset = document.createElement("BUTTON");
-    var minusetText = document.createTextNode("-1");
+    var minuset = create.createElement("BUTTON");
+    var minusetText = create.createTextNode("-1");
     minuset.id = "minus" + newPlayerNr;
     minuset.tabIndex = -1;
     minuset.title = "Click to withdraw 1 point";
@@ -57,7 +57,7 @@ function addPlayerWithArgs(playerDiv) {
     playerDiv.appendChild(minuset);
 
 // Add manual scorefield
-    var manualScore = document.createElement("INPUT");
+    var manualScore = create.createElement("INPUT");
     manualScore.id = manualScoreId;
     manualScore.value = 0;
     manualScore.size = 4;
@@ -70,7 +70,7 @@ function addPlayerWithArgs(playerDiv) {
 
 
 // Add scorefield and make it readonly
-    var scoreField = document.createElement("INPUT");
+    var scoreField = create.createElement("INPUT");
     scoreField.id = id_score;
     scoreField.tabIndex = -1;
     scoreField.title = "Total score";
@@ -82,8 +82,8 @@ function addPlayerWithArgs(playerDiv) {
     playerDiv.appendChild(scoreField);
 
 // Add removeButton which will delete entire row by calling removePlayer()
-      var removeButton = document.createElement("BUTTON");
-      var removeButtonText = document.createTextNode("Remove player");
+      var removeButton = create.createElement("BUTTON");
+      var removeButtonText = create.createTextNode("Remove player");
       removeButton.id = removeButtonId;
       removeButton.onclick = function(){removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetId, removeButtonId)};
       removeButton.tabIndex = -1;
@@ -92,7 +92,7 @@ function addPlayerWithArgs(playerDiv) {
       playerDiv.appendChild(removeButton);
 
 //Add a paragraph to make sure next player is on new line
-    var p = document.createElement('p');
+    var p = create.createElement('p');
     playerDiv.appendChild(p);
 
     //Add id to currentPlayers[]
