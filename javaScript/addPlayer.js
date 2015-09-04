@@ -5,20 +5,27 @@
 //playerNr is used to start of newPlayerNr
 var playerNr = 1;
 
+// This function enables an extration of document.appendChild
 function addPlayer(){
   addPlayerWithArgs(document.getElementById("playerDiv"));
 };
-
-function createTextField(create, id, size, title, value,className){
-  var temp = create.createElement("input");
+// This function enables creation of an input-element with attributes
+function createTextField(create, what, id, size, title, value, className, tabIndex){
+  var temp = create.createElement(what);
   temp.type = "text";
   temp.id = id;
   temp.size = size;
   temp.title = title;
   temp.value = value;
   temp.className = className;
+  temp.tabIndex = tabIndex;
+
   return temp;
 };
+function createTextNode(create,textNode){
+  var tempText = create.createTextNode(textNode);
+  return tempText;
+}
 function addPlayerWithArgs(playerDiv) {
 // newPlayerNr is used to iterate added player and add 1 on every turn
     newPlayerNr = playerNr++;
@@ -34,7 +41,7 @@ function addPlayerWithArgs(playerDiv) {
 
 //Add field where player may enter name.
 
-   var playerName = createTextField(document, "field" + newPlayerNr, 20,
+   var playerName = createTextField(document, "input", "field" + newPlayerNr, 20,
    "You may change name.", "Player" + newPlayerNr, "nameField");
    playerName.onclick = function(){this.select();}
    playerDiv.appendChild(playerName);
@@ -42,31 +49,27 @@ function addPlayerWithArgs(playerDiv) {
 
 
 // Add the +button
-    var plusset = document.createElement("BUTTON");
-    var plussetText = document.createTextNode("+1");
-    plusset.id = "plusset" + newPlayerNr;
-    plusset.tabIndex =-1;
-    plusset.title = "Click to add 1 point";
+
+    var plusset = createTextField(document,"button","plusset" + newPlayerNr,
+    0, "Click to add 1 point", null, "button", -1);
+    var plussetText = createTextNode(document,"+1");
+    // plusset.tabIndex =-1;
     plusset.onclick = function() {plussa(id_score);};
-    plusset.className = "button";
     plusset.appendChild(plussetText);
     playerDiv.appendChild(plusset);
 
 // Add the -button
-    var minuset = document.createElement("BUTTON");
-    var minusetText = document.createTextNode("-1");
-    minuset.id = "minus" + newPlayerNr;
-    minuset.tabIndex = -1;
-    minuset.title = "Click to withdraw 1 point";
+    var minuset = createTextField(document,"button","minus" + newPlayerNr,
+    0, "Click to withdraw 1 point", null, "button", -1);
+    var minusetText = createTextNode(document,"-1");
+    // minuset.tabIndex = -1;
     minuset.onclick = function() {minus(id_score);}
-    minuset.className = "button";
     minuset.appendChild(minusetText);
     playerDiv.appendChild(minuset);
 
 // Add manual scorefield
-    var manualScore = createTextField(document, "manualscore" + newPlayerNr,
+    var manualScore = createTextField(document,"input", "manualscore" + newPlayerNr,
     4, "In this field you may add score manually. Ex '40' or '-20'.", 0, "manualScoreField" );
-
     manualScore.onclick = function(){this.select();}
     manualScore.onkeydown = function(e){if(e.keyCode==13){manualScoreCalc(manualScoreId, id_score)}};
     manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
@@ -74,9 +77,9 @@ function addPlayerWithArgs(playerDiv) {
 
 
 // Add scorefield and make it readonly
-    var scoreField = createTextField(document,"score" + newPlayerNr, 4,
-    "Total score", 0, "scoreField")
-    scoreField.tabIndex = -1;
+    var scoreField = createTextField(document,"input","score" + newPlayerNr, 4,
+    "Total score", 0, "scoreField", -1)
+    // scoreField.tabIndex = -1;
     scoreField.readOnly = "readonly";
     playerDiv.appendChild(scoreField);
 

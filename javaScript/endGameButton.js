@@ -22,7 +22,7 @@ function createObject(){
     // console.log(currentScoreField);
     var b = document.getElementById(currentScoreField).value;
     playersAndScores.push({key:a, value: b});
-    console.log(playersAndScores);
+
   }
 }
 
@@ -68,7 +68,5 @@ function endGameWrapper(){
   fillWinnerArray(playersAndScores);
   declareWinner();
   winnerDivCss();
-  console.log(key);
-  console.log(value);
-  console.log(winnerArray);
+
                           }

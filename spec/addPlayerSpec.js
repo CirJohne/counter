@@ -25,7 +25,7 @@ describe("createTextField", function(){
       }
     };
 
-    var textField = createTextField(fakeDocument,"field1",10,"title",0,"className");
+    var textField = createTextField(fakeDocument, "input","field1",10,"title",0,"className");
     expect(textField.id).toEqual("field1");
     expect(textField.size).toEqual(10);
   });
