@@ -84,17 +84,16 @@ function addPlayerWithArgs(playerDiv) {
     playerDiv.appendChild(scoreField);
 
 // Add removeButton which will delete entire row by calling removePlayer()
-      var removeButton = document.createElement("BUTTON");
-      var removeButtonText = document.createTextNode("Remove player");
-      removeButton.id = removeButtonId;
+      var removeButton = createTextField(document,"button","removeButton" + newPlayerNr,
+      null,null,null,"button",-1);
+      var removeButtonText = createTextNode(document,"Remove player");
       removeButton.onclick = function(){removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetId, removeButtonId)};
-      removeButton.tabIndex = -1;
-      removeButton.className = "button";
       removeButton.appendChild(removeButtonText);
       playerDiv.appendChild(removeButton);
 
 //Add a paragraph to make sure next player is on new line
-    var p = document.createElement('p');
+    var p = createTextField(document,"p");
+    // var p = document.createElement('p');
     playerDiv.appendChild(p);
 
     //Add id to currentPlayers[]
