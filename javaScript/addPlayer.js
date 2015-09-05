@@ -5,6 +5,11 @@
 //playerNr is used to start of newPlayerNr
 var playerNr = 1;
 
+
+function createNewTextNode(create,textNode){
+  var tempText = create.createTextNode(textNode);
+  return tempText;
+}
 // This function enables an extration of document.appendChild
 function addPlayer(){
   addPlayerWithArgs(document.getElementById("playerDiv"));
@@ -22,10 +27,7 @@ function createNewElement(create, what, id, size, title, value, className, tabIn
   return temp;
 };
 
-function createTextNode(create,textNode){
-  var tempText = create.createTextNode(textNode);
-  return tempText;
-}
+
 
 function addPlayerWithArgs(playerDiv) {
 // newPlayerNr is used to iterate added player and add 1 on every turn
@@ -53,7 +55,7 @@ function addPlayerWithArgs(playerDiv) {
 
     var plusset = createNewElement(document,"button","plusset" + newPlayerNr,
     0, "Click to add 1 point", null, "button", -1);
-    var plussetText = createTextNode(document,"+1");
+    var plussetText = createNewTextNode(document,"+1");
     // plusset.tabIndex =-1;
     plusset.onclick = function() {addScore(document, id_score, 1);};
     plusset.appendChild(plussetText);
@@ -62,7 +64,7 @@ function addPlayerWithArgs(playerDiv) {
 // Add the -button
     var minuset = createNewElement(document,"button","minus" + newPlayerNr,
     0, "Click to withdraw 1 point", null, "button", -1);
-    var minusetText = createTextNode(document,"-1");
+    var minusetText = createNewTextNode(document,"-1");
     // minuset.tabIndex = -1;
     minuset.onclick = function() {addScore(document, id_score, -1);}
     minuset.appendChild(minusetText);
@@ -72,7 +74,8 @@ function addPlayerWithArgs(playerDiv) {
     var manualScore = createNewElement(document,"input", "manualscore" + newPlayerNr,
     4, "In this field you may add score manually. Ex '40' or '-20'.", 0, "manualScoreField" );
     manualScore.onclick = function(){this.select();}
-    manualScore.onkeydown = function(e){if(e.keyCode==13){addScore(document, id_score, parseInt(document.getElementById("manualscore"+ newPlayerNr).value))}};
+    manualScore.onkeydown = function(e){if(e.keyCode==13)
+    {addScore(document, id_score, parseInt(document.getElementById(manualScoreId).value))}};
     manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
     playerDiv.appendChild(manualScore);
 
@@ -87,7 +90,7 @@ function addPlayerWithArgs(playerDiv) {
 // Add removeButton which will delete entire row by calling removePlayer()
       var removeButton = createNewElement(document,"button","removeButton" + newPlayerNr,
       null,null,null,"button",-1);
-      var removeButtonText = createTextNode(document,"Remove player");
+      var removeButtonText = createNewTextNode(document,"Remove player");
       removeButton.onclick = function(){removePlayer(playerNameId, id_score, manualScoreId, plussetId, minusetId, removeButtonId)};
       removeButton.appendChild(removeButtonText);
       playerDiv.appendChild(removeButton);

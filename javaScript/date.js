@@ -1,8 +1,12 @@
 //Present date and time in paragraph
 
+function addDate(dateDiv){
 var rightNow = new Date();
 var p = document.createElement('p');
-var date = document.createTextNode(rightNow);
+var date = createNewTextNode(document,rightNow);
 p.id = "pDate";
 p.appendChild(date);
-document.getElementById('dateDiv').appendChild(p);
+dateDiv.appendChild(p);
+
+};
+addDate(document.getElementById("dateDiv"));
