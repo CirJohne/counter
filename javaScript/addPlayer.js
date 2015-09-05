@@ -55,7 +55,7 @@ function addPlayerWithArgs(playerDiv) {
     0, "Click to add 1 point", null, "button", -1);
     var plussetText = createTextNode(document,"+1");
     // plusset.tabIndex =-1;
-    plusset.onclick = function() {plussa(id_score);};
+    plusset.onclick = function() {addScore(document, id_score, 1);};
     plusset.appendChild(plussetText);
     playerDiv.appendChild(plusset);
 
@@ -64,7 +64,7 @@ function addPlayerWithArgs(playerDiv) {
     0, "Click to withdraw 1 point", null, "button", -1);
     var minusetText = createTextNode(document,"-1");
     // minuset.tabIndex = -1;
-    minuset.onclick = function() {minus(id_score);}
+    minuset.onclick = function() {addScore(document, id_score, -1);}
     minuset.appendChild(minusetText);
     playerDiv.appendChild(minuset);
 
@@ -72,7 +72,7 @@ function addPlayerWithArgs(playerDiv) {
     var manualScore = createNewElement(document,"input", "manualscore" + newPlayerNr,
     4, "In this field you may add score manually. Ex '40' or '-20'.", 0, "manualScoreField" );
     manualScore.onclick = function(){this.select();}
-    manualScore.onkeydown = function(e){if(e.keyCode==13){manualScoreCalc(manualScoreId, id_score)}};
+    manualScore.onkeydown = function(e){if(e.keyCode==13){addScore(document, id_score, parseInt(document.getElementById("manualscore"+ newPlayerNr).value))}};
     manualScore.onkeyup  = function(e){if(e.keyCode==13){manualScore.value=0; this.select();}};
     playerDiv.appendChild(manualScore);
 
