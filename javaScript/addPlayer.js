@@ -6,30 +6,17 @@
 var playerNr = 1;
 
 
-function createNewTextNode(create,textNode){
-  var tempText = create.createTextNode(textNode);
-  return tempText;
-}
+
 // This function enables an extration of document.appendChild
 function addPlayer(){
   addPlayerWithArgs(document.getElementById("playerDiv"));
 };
-// This function enables creation of an input-element with attributes
-function createNewElement(create, what, id, size, title, value, className, tabIndex){
-  var temp = create.createElement(what);
-  temp.type = "text";
-  temp.id = id;
-  temp.size = size;
-  temp.title = title;
-  temp.value = value;
-  temp.className = className;
-  temp.tabIndex = tabIndex;
-  return temp;
-};
+
 
 
 
 function addPlayerWithArgs(playerDiv) {
+  
 // newPlayerNr is used to iterate added player and add 1 on every turn
     newPlayerNr = playerNr++;
 
@@ -97,7 +84,7 @@ function addPlayerWithArgs(playerDiv) {
 
 //Add a paragraph to make sure next player is on new line
     var p = createNewElement(document,"p");
-    // var p = document.createElement('p');
+
     playerDiv.appendChild(p);
 
     //Add id to currentPlayers[]

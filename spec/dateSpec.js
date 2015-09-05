@@ -1,17 +1,15 @@
 describe("addDate", function(){
 it("should create an element with date", function(){
-  var dateDiv = jasmine.createSpyObj('dateDiv', ['appendChild']);
+  var fakeElement = {};
+  var fakeDocument = {
+    createElement: function(type){
+      return fakeElement;
+    }
+  };
 
-  addDate(dateDiv,
-    function(elementType){
-      return {
-        appendChild: function(){}
-      };
-    },
-    function(p){}
-  );
-
-  expect(dateDiv.appendChild.calls.count()).toEqual(1);
+  var date = addDate(fakeDocument);
+  expect(date.id).toEqual("pDate");
+  // expect(textField.size).toEqual(10);
 });
 });
 
